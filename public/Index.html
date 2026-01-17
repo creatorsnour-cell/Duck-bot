@@ -1,1 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ONE DUCK</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        
+        <div id="section-game" class="page-section active">
+            <div class="header">
+                <div class="league-info"><span id="league-name">Bronze Duck</span> 🏆</div>
+                <div class="wallet-btn" onclick="connectWallet()"><i class="fa-solid fa-wallet"></i> Connect</div>
+            </div>
+            <div class="score-container">
+                <h1 id="score">0</h1>
+            </div>
+            <div class="game-area">
+                <div class="duck-wrapper" id="click-pad">
+                    <img src="assets/duck-main.gif" id="duck-img" alt="Duck">
+                </div>
+            </div>
+            <div class="energy-container">
+                <div class="energy-info"><i class="fa-solid fa-bolt"></i> <span id="energy">1000</span> / <span id="max-energy">1000</span></div>
+                <div class="progress-bar"><div class="fill" id="energy-fill"></div></div>
+            </div>
+        </div>
 
+        <div id="section-frens" class="page-section" style="display:none;">
+            <div class="section-banner"><img src="assets/duck-friend.jpg" alt="Frens"></div>
+            <h2>Invite Frens</h2>
+            <div class="list-card">
+                <div>
+                    <strong>Invite a friend</strong><br>
+                    <small>+2,500 for you and friend</small>
+                </div>
+                <button class="mini-btn" onclick="inviteFren()">Invite</button>
+            </div>
+        </div>
+
+        <div id="section-tasks" class="page-section" style="display:none;">
+            <div class="section-banner"><img src="assets/duck-search.gif" alt="Tasks"></div>
+            <h2>Tasks</h2>
+            <div class="list-card" onclick="completeTask(this, 5000)">
+                <span>Join Community</span>
+                <strong>+5,000</strong>
+            </div>
+        </div>
+
+        <div id="section-boosts" class="page-section" style="display:none;">
+            <div class="section-banner"><img src="assets/duck-boost.gif" alt="Boosts"></div>
+            <h2>Boosts</h2>
+            <div class="list-card" onclick="buyBoost('multitap')">
+                <span>Multitap (Lvl <span id="mt-lvl">1</span>)</span>
+                <strong id="mt-cost">500</strong>
+            </div>
+            <div class="list-card" onclick="buyBoost('limit')">
+                <span>Energy Limit (Lvl <span id="el-lvl">1</span>)</span>
+                <strong id="el-cost">500</strong>
+            </div>
+        </div>
+
+        <div class="nav-bar">
+            <div class="nav-item active" onclick="switchTab('game', this)"><i class="fa-solid fa-coins"></i><span>Earn</span></div>
+            <div class="nav-item" onclick="switchTab('frens', this)"><i class="fa-solid fa-users"></i><span>Frens</span></div>
+            <div class="nav-item" onclick="switchTab('tasks', this)"><i class="fa-solid fa-tasks"></i><span>Tasks</span></div>
+            <div class="nav-item" onclick="switchTab('boosts', this)"><i class="fa-solid fa-rocket"></i><span>Boosts</span></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
